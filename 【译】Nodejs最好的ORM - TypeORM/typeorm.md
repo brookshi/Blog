@@ -1,5 +1,6 @@
 TypeORM是一个优秀的Node.js ORM框架，采用TypeScript编写，支持使用TypeScript或Javascript(ES5, ES6, ES7)开发。
-目标是保持支持最新的Javascript特性来帮助开发各种用到数据库的应用 - 不管是小应用还是企业级的。
+目标是保持支持最新的Javascript特性来帮助开发各种用到数据库的应用 - 不管是轻应用还是企业级的。
+
 TypeORM可以做到：
 
 * 根据Models自动创建数据库Table
