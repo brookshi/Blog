@@ -146,8 +146,7 @@ export class Photo {
         
 ### 创建一个主键列
 
-做得好. 
-现在ORM马上就可以在数据中生成这个photo表，不过还漏了一个，每个table都必须要有主键列，所以要加上它。
+很好， 现在ORM马上就可以在数据库中生成这个photo表，不过还漏了一个，每个table都必须要有主键列，所以要加上它。
 可以用`@PrimaryColumn`装饰器来标记一个主键列。
 
 ```typescript
