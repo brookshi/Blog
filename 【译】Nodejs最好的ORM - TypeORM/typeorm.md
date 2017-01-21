@@ -92,7 +92,7 @@ export class Photo {
     fileName: string;
     views: number;
 }
-````
+```
         
 ### 创建实体
 
