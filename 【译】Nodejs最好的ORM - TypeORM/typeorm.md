@@ -53,8 +53,7 @@ TypeORM参考了很多其他优秀ORM的实现, 比如 [Hibernate](http://hibern
     
     可以根据你的数据库选择安装上面的任意一个.
     
-    使用oracle驱动需要参考安装说明：
-    [their](https://github.com/oracle/node-oracledb) site.
+    使用oracle驱动需要参考安装说明：[地址](https://github.com/oracle/node-oracledb).
 
 #### TypeScript配置
 
