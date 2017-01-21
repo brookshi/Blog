@@ -295,9 +295,9 @@ createConnection({
 }).catch(error => console.log(error));
 ```
 
-在例子里使用的是mysql，你也可以选择其他数据库，只需要简单修改driver选项里的数据库的类型就可以了，如下： 
+在例子里使用的是mysql，你也可以选择其他数据库，只需要简单修改driver选项里的数据库的类型就可以了，比如： 
 mysql, mariadb, postgres, sqlite, mssql or oracle.
-同样可以修改你自己的host, port, username, password 以及database设置.
+同样可以修改host, port, username, password 以及database等设置.
 
 把Photo实体加到数据连接的实体列表中，所有需要在这个连接下使用的实体都必须加到这个列表中。
 
