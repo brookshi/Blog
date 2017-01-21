@@ -27,13 +27,13 @@ postWithPathParam(@PathParam('name') name: string, @QueryParam('id') id: string,
     return 'ok';
 }
 ```
+`@POST`里的参数是可选的，空的话会用这个controller的物理路径做为路由地址。
+
 `:name`是路径里的变量，比如 `/user/brook`, `:name`就是`brook`，可以在方法的参数里用`@PathParam`得到
 
-用`@BodyParam`可以得到`Post`上来的`body`
+`@BodyParam`可以得到`Post`上来的`body`
 
-用`@QueryParam`可以得到`url`里`?`后的参数
-
-`@POST`里的参数是可选的，空的话会用这个controller的物理路径做为路由地址。
+`@QueryParam`可以得到`url`里`?`后的参数
 
 ## 现在具体看看是怎么实现的
 
