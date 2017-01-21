@@ -207,7 +207,7 @@ export class Photo {
 
 ### 使用 `@PrimaryGeneratedColumn` 装饰器
 
-现在photo表的id可能自动生成自动增长，不过还是有点麻烦，这个一个很常见的功能，所以有一个专门的装饰器`@PrimaryGeneratedColumn`来实现这个功能。
+现在photo表的id可能自动生成自动增长，不过还是有点麻烦，这个一个很常见的功能，所以有一个专门的装饰器`@PrimaryGeneratedColumn`来实现相同的功能。
 
 ```typescript
 import {Table, Column, PrimaryGeneratedColumn} from "typeorm";
