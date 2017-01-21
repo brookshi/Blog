@@ -13,8 +13,7 @@ TypeORM可以做到：
 
 TypeORM可以帮助开发者专注于业务逻辑，而不用过于担心数据存储的问题。
 
-TypeORM参考了很多其他优秀ORM的实现, 比如 [Hibernate](http://hibernate.org/orm/),
- [Doctrine](http://www.doctrine-project.org/) 和 [Entity Framework](https://www.asp.net/entity-framework).
+TypeORM参考了很多其他优秀ORM的实现, 比如 [Hibernate](http://hibernate.org/orm/), [Doctrine](http://www.doctrine-project.org/) 和 [Entity Framework](https://www.asp.net/entity-framework).
 
 ## 安装
 
