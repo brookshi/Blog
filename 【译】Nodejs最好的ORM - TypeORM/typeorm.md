@@ -237,8 +237,8 @@ export class Photo {
 
 ### 自定义列的数据类型
 
-接下来让我们改一下列的数据类型。默认情况下，string类型的属性会映射到varchar(255)的数据类型，number则会映射到类似于float/double这样的数据类型（取决到是什么数据库）。
-但是我们不想所有的列被限制在varchar或float之类，下面来改正下：
+接下来让我们改一下列的数据类型。默认情况下，string类型的属性会映射到数据库里varchar(255)的数据类型，number则会映射到类似于float/double这样的数据类型（取决到是什么数据库）。
+但是我们不想所有的列被限制在varchar或float之类，下面来改进：
 
 ```typescript
 import {Table, Column, PrimaryGeneratedColumn} from "typeorm";
