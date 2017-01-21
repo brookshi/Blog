@@ -75,8 +75,7 @@ TypeORM在Node.JS 4.0或以上版本上测试通过。
 
 TypeORM可以在浏览器环境中工作，并且试验性的支持WebSQL
 如果在浏览器环境中使用TypeORM需要使用 `npm i typeorm-browser` 来替代 `typeorm`.
-更多相关可以参考[this page](https://typeorm.github.io/usage-in-browser.html). 
-和[this sample](https://github.com/typeorm/browser-example).
+更多相关可以参考[这里](https://typeorm.github.io/usage-in-browser.html)和[这个例子](https://github.com/typeorm/browser-example).
 
 ## 快速开始
 
