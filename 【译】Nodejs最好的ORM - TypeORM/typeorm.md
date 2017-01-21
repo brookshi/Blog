@@ -68,7 +68,7 @@ TypeORM参考了很多其他优秀ORM的实现, 比如 [Hibernate](http://hibern
 
 #### Node.js 版本
 
-TypeORM在Node.JS 4.0或以上版本上通过测试。
+TypeORM在Node.JS 4.0或以上版本上测试通过。
 如果在应用走动过程中出错可以尝试升级node.js到最新版本。
 
 #### 在浏览器中使用WebSQL (试用)
