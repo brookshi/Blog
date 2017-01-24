@@ -66,6 +66,16 @@ let name: string = 'brook';
 let note: string = `this is ${name}'s blog`;
 ```
 
+### Symbol
+这也是ES6的特性，用来当作唯一的标识，所有新建出来的Symbol都是不同的，不管传进去的值是否一样。
+
+```ts
+let key1 = Symbol('key');
+let key2 = Symbol('key');
+
+console.info(key1 === key2); // return false
+```
+
 ### any
 这个和C#的`dynamic`很相似，可以代表任何东西且在上面调用方法或属性不会在编译时期报错，当然也本来也就是JavaScript最基本的东西。
 
