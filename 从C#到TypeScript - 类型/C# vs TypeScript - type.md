@@ -113,6 +113,13 @@ let arr: string[] = ['a', 'b', 'c'];
 let list: Array<string> = ['a', 'b', 'c'];
 ```
 数组功能没C#配合`linq`那么强大，不过配合其他一些库如`lodash`也可以很方便的进行各种操作。
+数组还可以利用扩展操作符`...`来把数组解开再放入其他数组中。
+
+```ts
+let arr: number[] = [1, 2, 3];
+let newArr: number[] = [...arr, 4, 5];
+console.info(newArr); // 1, 2, 3, 4, 5
+```
 
 ### 元组
 C#也有个鸡肋的`Tuple`，不好用，不过新版的`Tuple`好像已经在C#7.0的计划当中。
