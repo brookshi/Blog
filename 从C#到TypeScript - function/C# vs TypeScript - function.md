@@ -110,3 +110,35 @@ let permission: Permission = {
 permission.checkLogin()();
 ```
 这样也倒逼着定义好类型，发挥TypeScript强类型的优势。
+
+### 泛型函数
+同C#一样支持泛型函数，写法也差不多。
+
+```ts
+function deserialize<T>(content: string): T { }
+
+function addItem<TKey, TValue>(key: TKey, value: TValue) { }
+```
+也支持泛型约束，C#用的是`where T: object`，而TypeScript用的是`extends Object`。
+
+```ts
+function deserialize<T extends Object>(content: string): T { }
+```
+泛型函数类型比普通函数类型在前面多了个`<T>`，比如上面`deserialize`。
+
+```ts
+let deserialize: <T>(content: string) => T;
+```
+但这样如果做为参数就略显复杂，可以用接口重构下：
+
+```ts
+function deserialize<T extends Object>(content: string): T { }
+
+interface serializable<T> {
+    (content: string): T;
+}
+
+function parse<T>(s: serializable<T>){ }
+
+parse(deserialize);
+```
