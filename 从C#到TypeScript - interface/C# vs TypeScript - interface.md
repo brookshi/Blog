@@ -125,4 +125,22 @@ interface UserConfig extends User{ //这里包含了name和private的pwd
 let config: UserConfig = new Admin('brook', '123');
 ```
 
+### 泛型
+TypeScript是同C#一样支持泛型的，而且使用方面也差不多，在接口名后面加上`<T>`即可。
+
+```ts
+interface Testable<T> {
+    field: T;
+    (arg: T): T;
+}
+```
+也支持泛型约束，关键字是`extends`。
+
+```ts
+interface Testable<T extends Object> {
+    field: T;
+    (arg: T): T;
+}
+```
+
 TypeScript的接口对于C#程序员来说是有点奇怪了，不过用过之后还是发现非常符合JavaScript语言灵活的特性。

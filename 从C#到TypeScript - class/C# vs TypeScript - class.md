@@ -159,5 +159,26 @@ console.info(t.checkName());  // false
 ```
 如果给上面的`Test`和`Test2`各加一个`private email: string;`，结果是编译不了，因为它们并不是继承关系，也就兼容不了。
 
+### 泛型
+同接口一样支持泛型，用法也一样，可以参考接口泛型。
+
+```ts
+interface Testable<T> {
+    field: T;
+    method(arg: T): T;
+}
+
+class Test<T> implements Testable<T>{
+    field: T;
+    method(arg: T): T{
+        console.info(`arg is ${typeof arg}`);
+        return null;
+    }
+}
+
+let test11 = new Test<string>();
+test11.method('method');  // arg is string
+test11.method(123); // error, 123 is not string
+```
 
 总的来说，TypeScript的类和C#或Java可以说十分相似，除了兼容性基本上没有什么新的东西。
