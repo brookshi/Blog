@@ -26,14 +26,14 @@ class Controller{
 
 ### 装饰器的实现
 装饰器根据实现来说有两种：
-一种是不带参数，如`@Testable`。
+一种是不带括号，和属性一样，如`@Testable`。
 
 ```ts
 function Testable(target: Function) { // 类、方法、属性、方法参数的参数各不相同
     //这里可以记录一些信息到target，或者针对target做一些处理，如seal
 }
 ```
-另外一种是带参数，如`@Log('controller')`，这种实现函数里的参数就是括号里的参数，而且需要返回一个`function`。
+另外一种是带括号的，和函数一样，如`@Log('controller')`，这种实现函数里的参数就是括号里的参数，而且需要返回一个`function`。
 
 ```ts
 function Log(name: string) { // name就是传进来的参数'controller'
@@ -53,11 +53,11 @@ function sealed(target: Function) {
 }
 
 @sealed
-class Test22{
+class Test{
     
 }
 
-Test22.prototype.test = ''; // 运行时出错，不能添加
+Test.prototype.test = ''; // 运行时出错，不能添加
 ```
 上面的`sealed`就是类的装饰器，`target`指构造函数，类装饰器就这么一个参数。
 
@@ -112,6 +112,7 @@ class Controller{
 
 ```ts
 const CheckNullKey = Symbol();
+const Router = Symbol();
 
 // 把CheckNull装饰的参数存起来
 function CheckNull(target: any, name: string, index: number) {
@@ -129,7 +130,7 @@ function Check(target: any, name: string, descriptor: PropertyDescriptor) {
         if (params) {
             for (let index = 0; index < params.length; index++) {
                 if (params[index] == CheckNullKey && 
-                    (arguments[parameterIndex] === undefined || arguments[parameterIndex] === null)) {
+                    (arguments[index] === undefined || arguments[index] === null)) {
                     throw new Error("Missing required argument.");
                 }
             }
@@ -147,6 +148,8 @@ class Controller{
         return id;
     }
 }
+
+new Controller().getContent(null); // error : Missing required argument.
 ```
 
 ### 属性装饰器
@@ -171,13 +174,45 @@ class User {
 
     @Enumerable(true)
     get name(){
-        return _name;
+        return this._name;
     }
 
     set name(value: string) {
-        _name = value;
+        this._name = value;
     }
 }
 ```
 
 ### 多个装饰器的执行顺序
+一个声明可以添加多个装饰器，所以会有个执行先后顺序。
+首先从上到下执行装饰器函数，然后再从下往上应用带括号的装饰器返回的函数。
+
+```ts
+function Test1(){
+    console.info('eval test1');
+    return function(target: any, name: string, descriptor: PropertyDescriptor){
+        console.info('apply test1');
+    }
+}
+
+function Test2(){
+    console.info('eval test2');
+    return function(target: any, name: string, descriptor: PropertyDescriptor){
+        console.info('apply test2');
+    }
+}
+
+class User1{
+
+    @test1()
+    @Test2()
+    getName(){
+
+    }
+}
+```
+结果是：
+eval test1
+eval test2
+apply test2
+apply test1
