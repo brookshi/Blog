@@ -1,4 +1,5 @@
 TypeScript和C#一样是微软搞出来的，而且都是大牛Anders Hejlsberg领导开发的，它们之间有很多共同点，现在尝试以C#程序员的角度来理解下TypeScript。
+TypeScript一门是JavaScript的超集语言，除了支持最新的JS语法外，TypeScript还会增加一些其他好用的语法糖，最重要的是它在兼顾JavaScript灵活的基础上增加了强类型系统，这样更友好的支持开发大型系统。
 
 现在来看下TypeScript基础类型：
 ### 数值
@@ -59,7 +60,7 @@ var Action;
 
 ### 字符串
 字符串也基本和C#一样，不过由于是JavaScript的超集，所以当然也支持单引号。
-C#6.0里的模板字符串语法糖`$"this is {name}'s blog"`在TypeScript里也有对应的支持，当然，这也是ES6的规范。
+C#6.0里的模板字符串语法糖`$"this is {name}'s blog"`在TypeScript里也有类似的支持，当然，这也是ES6的规范。
 
 ```ts
 let name: string = 'brook';
@@ -68,6 +69,7 @@ let note: string = `this is ${name}'s blog`;
 
 ### Symbol
 这也是ES6的特性，用来当作唯一的标识，所有新建出来的Symbol都是不同的，不管传进去的值是否一样。
+Symbol非常适合做唯一key。
 
 ```ts
 let key1 = Symbol('key');
@@ -77,7 +79,7 @@ console.info(key1 === key2); // return false
 ```
 
 ### any
-这个和C#的`dynamic`很相似，可以代表任何东西且在上面调用方法或属性不会在编译时期报错，当然也本来也就是JavaScript最基本的东西。
+这个和C#的`dynamic`很相似，可以代表任何东西且在上面调用方法或属性不会在编译时期报错，当然也本来就是JavaScript最基本的东西。
 
 ```ts
 let test: any = 'test';
