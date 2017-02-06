@@ -40,4 +40,4 @@ promise.then(success => {
 ```
 
 ## **嵌套的Promise**
-
+在实际场景中，我们可能需要在一个异步
