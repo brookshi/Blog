@@ -169,7 +169,7 @@ function snFunc(): string | number{
 ### 交叉类型
 有`|`就有`&`，交叉类型就是用`&`符号隔开，表示把多个类型合在一起，新类型包含所有类型的功能。
 一些语言如Python有`mixins`功能，用这个就很容易做到，主要是类似多重继承，不过个人不是用喜欢这个，明显违反了单一原则。
-下面这段代码就显示了`mixins`结合两个类的功能，看起来是不是有点不大合理，目前的趋势也是组合优先，用组合同样也可以做来这些。
+下面这段代码就显示了`mixins`结合两个类的功能，看起来是不是有点不大合理，目前的趋势也是组合优先，用组合同样也可以做到这些。
 
 ```ts
 class Person {
@@ -241,7 +241,7 @@ if(typeof test === 'string'){
     console.info(test.length); // 这里由于typeof确定了test类型是string，所以作用域内可以直接取length，而不用<string>转一次
 }
 ```
-`typeof`比较是有限制的，自己创建的类返回的都是`object`，这时会用到`instanceof`，幸运的是`instanceof`同样会提供类型保护机制。
+`typeof`比较是有限制的，自己创建的类返回的都是`object`，这时会用到`instanceof`，并且`instanceof`同样会提供类型保护机制。
 另外还有类型断言可以提供类似的功能，不过不如上面的来得方便。
 
 ```ts
@@ -271,7 +271,7 @@ type newstring = string;
 let str: newstring = 'aaa';
 console.info(str.length);
 ```
-在C#中也可以用`using strList as System.Generic.List`做个别名，不过还是不一样，C#的是可以实例化的。
+在C#中也可以用`using strList = System.Generic.List`做个别名，不过还是不一样，C#的是可以实例化的。
 TypeScript别名不是新建一个类型，而是现有类型的一个引用。
 给现在类型起别名意义不大，倒是可以配合联合类型或交叉类型做成一些可读的或比较新颖的类型。
 别名也支持泛型，现在就有一个用别名创建了一个Tree类型，不过也只是别名，不能实例化，只能是看的，这点不如接口实在。
@@ -289,7 +289,7 @@ type Tree<T> = {
 ```
 
 ### 字符串字面量类型
-TypeScript同样可以让string成为一个类型，比如`let strType = 'string type'`。
+TypeScript可以让string成为一个类型，比如`let strType = 'string type'`。
 这个可以用在方法参数中，用来限制参数的输入。
 
 ```ts
@@ -301,7 +301,7 @@ test('test'); // 编译不了，参数只能是test1, test2或test3
 
 ### 可辨识联合
 综合上面的字符串字面量类型、联合类型、类型保护、类型别名可以创建一个可辨识联合的模式。
-必须要在自定义的多个类中有相同的字段，这个字段用的是字符串字面量类型并且把这里类型联合起来。
+必须要在自定义的多个类中有相同的字段，这个字段用的是字符串字面量类型并且把这些类型联合起来。
 
 ```ts
 interface Square {
