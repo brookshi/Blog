@@ -29,6 +29,7 @@ var promise = new Promise(function(resolve, reject) {
 });
 ```
 通常需要在成功或失败后做一些操作，这时需要`then`来做这个事，`then`可以有两个函数参数，第一个是成功后调用的，第二个是失败调用的，第二个是可选的。
+另外，`then`返回的也是一个Promise，不过不是原来的那个，而是新new出来的，这样可以链式调用，`then`后面再接`then`。
 
 ```ts
 // 函数参数用lambda表达式写更简洁
@@ -36,8 +37,55 @@ promise.then(success => {
     console.info(success);
 }, error => {
     console.info(error);
-});
+}).then(()=>console.info('finish'));
 ```
 
 ## **嵌套的Promise**
-在实际场景中，我们可能需要在一个异步
+在实际场景中，我们可能需要在一个异步操作后再接个异步操作，这样就会有`Promise`的嵌套操作。
+下面的代码显示的是`Promise`的嵌套操作：
+`p1`先打印"start"，延时两秒打印"p1"。
+`p2`在`p1`完成后延时两秒打印"p2"。
+
+```ts
+function delay(): Promise<void>{
+    return new Promise<void>((resolve, reject)=>{setTimeout(()=>resolve(), 2000)});
+}
+
+let p1 = new Promise((resolve, reject) => {
+    console.info('start'); 
+    delay().then(()=>{
+        console.info('p1'); 
+        resolve()
+    });
+});
+
+let p2 = new Promise((resolve, reject) => {
+    p1.then(()=>delay().then(()=>resolve()));
+});
+
+p2.then(()=>console.info('p2'));
+```
+
+## **异常处理**
+上面提到`Promise`出错时把状态变为`rejected`并把错误消息传给`reject`函数，在`then`里面调用`reject`函数就可以显示异常。
+不过这样写显得不是很友好，`Promise`还有个`catch`函数专门用来处理错误异常。
+而且`Promise`的异常是冒泡传递的，最后面写一个`catch`就可以捕获到前面所有promise可能发生的异常，如果用`reject`就需要每个都写。
+所以`reject`函数一般就不需要在`then`里面写，在后面跟个`catch`就可以了。
+
+```ts
+new Promise(function(resolve, reject) {
+  throw new Error('error');
+}).catch(function(error) {
+  console.info(error); // Error: error
+});
+```
+也如上面所说状态只有两种变化且一旦变化就固定下来，所以如果已经在`Promise`里执行了`resolve`，再throw异常是没用的，catch不到，因为状态已经变成`resolved`。
+
+```ts
+new Promise(function(resolve, reject) {
+    resolve('success');
+    throw new Error('error');
+}).catch(function(error) {
+    console.info(error); // 不会执行到这里
+});
+```
