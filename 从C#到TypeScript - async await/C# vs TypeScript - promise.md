@@ -2,9 +2,10 @@
 ## **背景**
 相信之前用过JavaScript的朋友都碰到过异步回调地狱(callback hell)，N多个回调的嵌套不仅让代码读起来十分困难，维护起来也很不方便。
 其实C#在`Task`出现之前也是有类似场景的，Async Programming Mode时代，用`Action`和`Func`做回调也很流行，不过也是意识到太多的回调嵌套代码维护不易，微软引入了`Task`和Task-based Async Pattern。
-虽然不知道是哪个语言最早有这个概念，但相信是C#把`async await`带来流行语言的舞台，接着其他语言也以不同的形式支持`async await`，如Python, Dart, Swift等。
+虽然不知道是哪个语言最早有这个概念，但相信是C#把`async await`带到流行语言的舞台，接着其他语言也以不同的形式支持`async await`，如Python, Dart, Swift等。
 JavaScript同样在ES6开始支持`Promise`和`Generator`，并在ES7中提出支持`async await`的议案。
-TypeScript在1.7版本开始支持`async await`编译到ES6，并在2.1版本开始支持编译到ES5和ES3，算是全面支持了。
+
+这篇先来看看Promise：
 
 ## **Promise的特点**
 `Promise`之于TypeScript，相当于`Task`之于C#，只有返回`Promise`的函数才能使用`async await`。
@@ -88,4 +89,54 @@ new Promise(function(resolve, reject) {
 }).catch(function(error) {
     console.info(error); // 不会执行到这里
 });
+```
+另外，`catch`里的代码也可能出异常，所以`catch`后面也还可以跟`catch`的议案。
+```ts
+new Promise(function(resolve, reject) {
+    resolve('success');
+    throw new Error('error');
+}).catch(function(error) {
+    console.info(error); // 不会执行到这里
+});
+```
+
+## **finally 和 done**
+异常的`try...catch`后面可以跟`finally`来执行必须要执行的代码，`Promise`同样有`finally`来执行最后的代码。
+另外还有`done`在最后面来表示执行结束并抛出可能出现的异常，比如最后一个`catch`代码块里的异常。
+```ts
+let p = new Promise(function(resolve, reject) {
+    x = 2;  // error， 没有声明x变量
+    resolve('success');
+}).catch(function(error) {
+    console.info(error); 
+}).finally(()=>{ // 总会执行这里
+    console.info('finish');
+    y = 2;  // error, 没有声明y变量
+}).done(); 
+
+try{
+    p.then(()=>console.info('done'));
+} catch (e){
+    console.info(e); // 由于最后面的done，所以会把finally里的异常抛出来，如果没有done则不会执行到这里
+}
+```
+
+## **并行执行Promise**
+虽然JavaScript是单线程语言，但并不妨碍它执行一些IO并行操作，如不阻塞发出http request，然后等待callback。
+`Promise`除了用`then`来顺序执行外，也同样可以不阻塞同时执行多个`Promise`然后等所有结果返回再进行后续操作。
+C#的`Task`有个`WhenAll`的静态方法来做这个事，`Promise`则是用`all`方法达到同样目的。
+`all`方法接受实现Iterator接口的对象，比如数组。
+```ts
+let p = Promise.all([p1, p2, p3]);
+```
+`all`返回的是一个新的`Promise`- p，p的状态是由p1, p2, p3同时决定的：
+```ts
+p.resolved = p1.resolve && p2.resolve && p3.resolve
+p.rejected = p1.rejected || p2.rejected || p3.rejected
+```
+也就是说p的成功需要p1,p2,p3都成功，而只要p1, p2, p3里有任何一个失败则p失败并退出。
+
+`Promise`还有一个方法`race`同样是并行执行多个`Promise`，不同于`all`的是它的成功状态和错误状态一样，只要有一个成功就成功，如同C# Task的`Any`方法。
+```ts
+let p = Promise.race([p1, p2, p3]);
 ```
