@@ -1,6 +1,4 @@
 上篇讲了`Promise`，`Promise`的执行需要不停的调用`then`，虽然比callback要好些，但也显得累赘。所以ES6里添加了`Generator`来做流程控制，可以更直观的执行Promise，但终级方案还是ES7议案中的`async await`。
-TypeScript在1.7版本开始支持`async await`编译到ES6，并在2.1版本开始支持编译到ES5和ES3，算是全面支持了。
-
 当然`async await`本质上也还是`Generator`，可以算是`Generator`的语法糖。
 所以这篇先来看下Generator.
 
