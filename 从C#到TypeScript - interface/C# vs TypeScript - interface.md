@@ -1,9 +1,8 @@
 为了更好的抽象出行为和属性，TypeScript在ES6的基础上增加了接口`interface`。
 C#也有interface，不过TypeScript的接口还不大一样，C#里的接口一般是为类服务，让类实现接口中定义的方法或属性。
-TypeScript在C#基础上更进一步，由于JavaScript是门非常灵活的语言，TypeScript作为JavaScript的超集需要保持灵活性，
-所以接口在TypeScript里可以脱离具体的类，单独作为类似契约的存在，接口里的属性也并非一定需要实现。
+TypeScript在C#基础上更进一步，由于JavaScript是门非常灵活的语言，TypeScript作为JavaScript的超集需要保持灵活性，所以接口在TypeScript里可以脱离具体的类，单独作为类似契约的存在，接口里的属性也并非一定需要实现。
 
-### 类的接口
+## **类的接口**
 这和C#的差不多，描述了公共的成员；不过实现接口语法有点类似于Java，用的是implements。
 
 ```ts
@@ -24,7 +23,7 @@ interface Deleteable {}
 interface Changeable extends Editable, Deleteable {}
 ```
 
-### 接口的属性
+## **接口的属性**
 接口的属性可以定义为`readonly`，这个和C#里只有`get`没有`set`的属性有点像，同样，实现接口的类也不一定需要`readonly`。
 
 ```ts
@@ -55,7 +54,7 @@ class Request implements RequestConfig {
 }
 ```
 
-### 接口不需要类的支持
+## **接口不需要类的支持**
 在C#里面，接口如果没有类来实现的话是没有什么意义的，但在TypeScript里不一样，接口可以单独使用。
 
 ```ts
@@ -85,7 +84,7 @@ let check: CheckLogin = function(name: string, pwd: string): boolean {
     return false;
 }
 ```
-另外，接口不可以用来描述可索引类型，就有点类似C#的`Dictionary`。
+另外，接口还可以用来描述可索引类型，就有点类似C#的`Dictionary`。
 索引支持两种：`number`和`string`。
 
 ```ts
@@ -99,9 +98,9 @@ console.info(dict['key1']); // value1
 console.info(dict['key']); // undefined
 ```
 
-### 接口继承类
+## **接口继承类**
 这在C#中很不可思议，接口居然还可以反过来继承类，不过对于JavaScript里来说，灵活方便很重要，所以TypeScript实现了这个功能来快速生成一个接口。
-虽说在比较复杂的继承关系时可能会有用，不过个人认为有点鸡肋，因为复杂的继承通常会引入一些问题如紧耦合，牵一发而动全身，再加上这个，可能更让人摸不着头脑，不如用组合来得好。
+虽说在比较复杂的继承关系时可能会有用，不过个人认为这个功能还是有点鸡肋，因为复杂的继承通常会引入一些问题如紧耦合，牵一发而动全身，再加上这个，可能更让人摸不着头脑，不如用组合来得好。
 接口继承类时会继承类中所有的成员，不管是`private`,`protected`还是`public`，只是不包括其实现。
 不过继承了一个类不公开成员的接口只能被该类或该类的子类实现。
 
@@ -125,8 +124,8 @@ interface UserConfig extends User{ //这里包含了name和private的pwd
 let config: UserConfig = new Admin('brook', '123');
 ```
 
-### 泛型
-TypeScript是同C#一样支持泛型的，而且使用方面也差不多，在接口名后面加上`<T>`即可。
+## **泛型**
+TypeScript是同C#一样支持泛型的，而且在使用方面也差不多，在接口名后面加上`<T>`即可。
 
 ```ts
 interface Testable<T> {
