@@ -124,19 +124,19 @@ for(let p of Reflect.ownKeys(obj)){
 ```
 
 ## **其他**
-- Reflect.construct(target,args)
+- **Reflect.construct(target,args)**
 
     实例化对象除了new之外，还可以用这个，有时候很有用，比如ORM框架里join的字段就可以在设置表时把关联的类型传给字段，使用时用该类型就可以创建出实例。
-- Reflect.getPrototypeOf(target) 和 Reflect.setPrototypeOf(target, prototype)
+- **Reflect.getPrototypeOf(target) 和 Reflect.setPrototypeOf(target, prototype)**
 
     分别用于获取和设置对象的原型
-- Reflect.getOwnPropertyDescriptor(target, name)
+- **Reflect.getOwnPropertyDescriptor(target, name)**
 
     设置对象属性的描述对象，如`configurable, writable, enumerable`。
-- Reflect.isExtensible(target) 
+- **Reflect.isExtensible(target)**
 
     分别用于判断对象是否可扩展。
-- Reflect.preventExtensions(target)
+- **Reflect.preventExtensions(target)**
 
     让一个对象变为不可扩展
 
