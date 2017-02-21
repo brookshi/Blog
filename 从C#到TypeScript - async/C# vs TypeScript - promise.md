@@ -1,7 +1,7 @@
 
 ## **背景**
 相信之前用过JavaScript的朋友都碰到过异步回调地狱(callback hell)，N多个回调的嵌套不仅让代码读起来十分困难，维护起来也很不方便。
-其实C#在`Task`出现之前也是有类似场景的，Async Programming Mode时代，用`Action`和`Func`做回调也很流行，不过也是意识到太多的回调嵌套代码维护不易，微软引入了`Task`和Task-based Async Pattern。
+其实C#在`Task`出现之前也是有类似场景的，Async Programming Mode时代，用`Action`和`Func`做回调也很流行，不过也是意识到太多的回调嵌套代码可读性差且维护不易，微软引入了`Task`和Task-based Async Pattern。
 虽然不知道是哪个语言最早有这个概念，但相信是C#把`async await`带到流行语言的舞台，接着其他语言也以不同的形式支持`async await`，如Python, Dart, Swift等。
 JavaScript同样在ES6开始支持`Promise`和`Generator`，并在ES7中提出支持`async await`的议案。
 
@@ -14,8 +14,8 @@ JavaScript同样在ES6开始支持`Promise`和`Generator`，并在ES7中提出�
 `pending`: 进行中
 `resolved`: 成功
 `rejected`: 失败
-并且这三个状态只有两种转换：`pending`->`resolved`、`pending`->`rejected`，也就是不是成功就是失败，并没有多余的状态转换。
-这两种转换都是由异步返回的结果给定的，成功取回数据就是`resolved`，取数据失败或出异常就是`rejected`。
+并且这三个状态只有两种转换：`pending`->`resolved`、`pending`->`rejected`，不是成功就是失败，并没有多余的状态转换。
+这两种转换都是由异步返回的结果给定的，成功取回数据就是`resolved`，取数据出异常就是`rejected`。
 也因此，这转换过后的结果就是固定的了，不可能在转换过后还会变回`pending`或其他状态。
 `Promise`不能在任务进行中取消，只能等结果返回，这点上不如C#的`Task`，`Task`可以通过`CancelTaskToken`来取消任务。
 
@@ -104,7 +104,7 @@ new Promise(function(resolve, reject) {
 ```
 
 ## **BlueBird的 finally 和 done**
-异常的`try...catch`后面可以跟`finally`来执行必须要执行的代码，`Promise`原生并不支持，不过可以引入[BlueBird](http://bluebirdjs.com/docs/getting-started.html)的扩展库来支持。
+异常的`try...catch`后面可以跟`finally`来执行必须要执行的代码，`Promise`原生并不支持，可以引入[BlueBird](http://bluebirdjs.com/docs/getting-started.html)的扩展库来支持。
 另外还有`done`在最后面来表示执行结束并抛出可能出现的异常，比如最后一个`catch`代码块里的异常。
 
 ```ts
@@ -126,7 +126,7 @@ try{
 ```
 
 ## **并行执行Promise**
-虽然JavaScript是单线程语言，但并不妨碍它执行一些IO并行操作，如不阻塞发出http request，然后等待callback。
+虽然JavaScript是单线程语言，但并不妨碍它执行一些IO并行操作，如不阻塞发出http request，然后异步等待。
 `Promise`除了用`then`来顺序执行外，也同样可以不阻塞同时执行多个`Promise`然后等所有结果返回再进行后续操作。
 C#的`Task`有个`WhenAll`的静态方法来做这个事，`Promise`则是用`all`方法达到同样目的。
 `all`方法接受实现Iterator接口的对象，比如数组。
