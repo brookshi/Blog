@@ -17,7 +17,7 @@ console.info(p.next());
 console.info(p.next());
 console.info(p.next());
 ```
-先看下和普通函数的区别，`function`后面多了一个`*`，变成了`function*`，函数体用到了`yield`，这个大家比较熟悉，C#也有，返回集合有时会用到。
+先看下和普通函数的区别，`function`后面多了一个`*`，变成了`function*`，函数体用到了`yield`，这个大家比较熟悉，C#也有，返回可枚举集合有时会用到。
 在ES6里`yield`同样表示返回一个迭代器，所以用到的时候会用`next()`来顺序执行返回的迭代器函数。
 上面代码返回的结果如下：
 
@@ -34,7 +34,7 @@ console.info(p.next());
 所谓协程其实可以看做是比线程更小的执行单位，一个线程可以有多个协程，协程也会有自己的调用栈，不过一个线程里同一时间只能有一个协程在执行。
 而且线程是资源抢占式的，而协程则是合作式的，怎样执行是由协程自己决定。
 由于JavaScript是单线程语言，本身就是一个不停循环的执行器，所以它的协程是比较简单的，线程和协程关系是 1:N。
-同样是基于协程goroutine的go语言实现的是 M:N，要同时协调线程和协程，复杂得多。
+同样是基于协程goroutine的go语言实现的是 M:N，要同时协调多个线程和协程，复杂得多。
 在`Generator`中碰到`yield`时会暂停执行后面代码，碰到有`next()`时再继续执行下面部分。
 
 当函数符合`Generator`语法时，直接执行时返回的不是一个确切的结果，而是一个函数迭代器，因此也可以用`for...of`来遍历，遍历时碰到结果`done`为true则停止。
@@ -57,7 +57,7 @@ id
 123
 ```
 因为最后一个`finish`的`done`是true，所以`for...of`停止遍历，最后一个就不会打印出来。
-`Generator`的`next()`是可以带参数的，
+另外，`Generator`的`next()`是可以带参数的，
 
 ```ts
 function* calc(num: number){
@@ -82,7 +82,7 @@ while(!curr.done){
     console.info(curr.value);
     curr = p.next(curr.value);
 }
-console.info(curr.value);
+console.info(curr.value); // 最终结果
 ```
 `Generator`可以配合`Promise`来更直观的完成异步操作。
 
@@ -100,8 +100,8 @@ function* run(){
 let generator = run();
 generator.next().value.then(()=>generator.next());
 ```
-就`run`这个函数来看，从上到下执行是很好理解的，只是执行时需要不停的使用`then`。
-好在TJ大神写了[CO模块](https://github.com/tj/co)，可以方便的执行这种函数，把`Generator`函数传给`co`即可。
+就`run`这个函数来看，从上到下执行是很好理解的，先输出'start'，等待2秒，再输出'finish'。
+只是执行时需要不停的使用`then`，好在TJ大神写了[CO模块](https://github.com/tj/co)，可以方便的执行这种函数，把`Generator`函数传给`co`即可。
 
 ```ts
 co(run).then(()=>console.info('success'));
@@ -143,13 +143,13 @@ function co(gen) {
     function next(ret) {
       if (ret.done) return resolve(ret.value); // done是true的话表示完成，结束递归
       var value = toPromise.call(ctx, ret.value);
-      if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
+      if (value && isPromise(value)) return value.then(onFulfilled, onRejected); //递归onFulfilled
       return onRejected(new TypeError('You may only yield a function, promise, generator, array, or object, '
         + 'but the following object was passed: "' + String(ret.value) + '"'));
     }
   });
 }
 ```
-可以看到co的核心代码和我上面递归调用`Generator`函数的本质是一样的。
+可以看到co的核心代码和我上面写的递归调用`Generator`函数的本质是一样的，不断调用下一个Promise，直到`done`为true。
 
 纵使有co这个库，但是使用起来还是略有不爽，下篇就轮到`async await`出场，前面这两篇都是为了更好的理解下一篇。

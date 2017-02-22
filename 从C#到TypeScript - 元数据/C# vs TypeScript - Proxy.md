@@ -1,5 +1,5 @@
 我们知道在C#中要实现代理功能需要自己来实现代理类，并且每个类需要不同的代理类，使用起来不方便，虽然借助一些AOP框架可以一定程度实现拦截，但毕竟框架级别的还是太重了。
-现在ES6倒是解决了这个，Proxy是ES6推出的用于拦截操作的一层代理实现，TypeScript当然也同样支持，下面来看下Proxy是怎么用的。
+现在ES6倒是出了个解决方案，Proxy是ES6推出的用于拦截操作的一层代理实现，TypeScript当然也同样支持，下面来看下Proxy是怎么用的。
 
 ## **Proxy使用**
 Proxy本身是一个类，可以通过`new`来实例化一个代理。
@@ -16,7 +16,7 @@ Proxy有两个参数：
 let obj = { name: 'brook' };
 let p = new Proxy(obj, {
     get(target, property){
-        return 'cnblogs'
+        return 'cnblogs';
     }
 });
 
@@ -102,7 +102,7 @@ let p = new Proxy(arr, {
 });
 
 p[0] = 11;
-p[1] = "22";
+p[1] = "brook";
 
 console.info(arr[0]); // 11
 console.info(arr[1]); // 0
@@ -153,5 +153,5 @@ I am brook in test2
 ```
 也就是实际调用的还是Test1的func，所以第一条输出为`call test1 func`，虽然Proxy代理的是Test1的func，但实际执行时传的this是t2，所以函数里的this指向了Test2，取的也就是`test2`中要实现代理功能需要自己来实现代理类，并且每个类需要不同的代理类，使用起来不方便，虽然借助一些AOP框架可以一定程度实现拦截，但毕竟框架级别的还是太重了。
 
-下面几个应该传是常用的，其他的意思也很明显就不多说了，Proxy的应用场景除了在上面说过的MVVM外，还可以用在ORM中，把对象的行为映射到数据库中，还有数据访问的代理，总是想用到代理的可以考虑Proxy。
+上面介绍了几个常用的，其他的意思也很明显就不多说了，Proxy的应用场景除了上面说过的MVVM外，还可以用在ORM中，把对象的行为映射到数据库中，还有数据访问的代理，总之想用到代理的可以考虑Proxy。
 还有就是要记住Proxy不是透明代理，它有自己的this，使用时需要注意。
