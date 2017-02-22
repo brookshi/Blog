@@ -17,17 +17,17 @@ class Cache{
     private _items: {[key: string]: string} = {};
 
     private Cache(){
-
+ 
     }
 
     set(key: string, value: string){
-        _items[key] = value;
-        console.log(`set cache with key: ${key}, value: ${value}`);
+        this._items[key] = value;
+        console.log(`set cache with key: '${key}', value: '${value}'`);
     }
 
     get(key: string): string{
-        let value = _items[key];
-        console.log(`get cache value: ${value} with key: ${key}`);
+        let value = this._items[key];
+        console.log(`get cache value: '${value}' with key: '${key}'`);
         return value;
     }
 }
