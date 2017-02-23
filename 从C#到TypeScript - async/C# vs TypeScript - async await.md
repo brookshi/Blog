@@ -1,5 +1,5 @@
 上两篇分别说了`Promise`和`Generator`，基础已经打好，现在可以开始讲`async await`了。
-`async await`是ES7的议案，TypeScript在1.7版本开始支持`async await`编译到ES6，并在2.1版本开始支持编译到ES5和ES3，算是全面支持了。
+`async await`是ES7的议案，TypeScript在1.7版本开始支持`async await`编译到ES6，并在2.1版本支持编译到ES5和ES3，算是全面支持了。
 
 ## **async await 用法**
 和C#里的十分相似，看个例子：
@@ -140,9 +140,9 @@ function(thisArg, _arguments, P, generator) {
 		}
 
 		function step(result) {
-			result.done ? resolve(result.value) : new P(function(resolve) {
+			result.done ? resolve(result.value) : new P(function(resolve) { //P是Promise的类型别名
 				resolve(result.value);
-			}).then(fulfilled, rejected);
+			}).then(fulfilled, rejected); // 没有done的话继续fulfilled
 		}
 		step((generator = generator.apply(thisArg, _arguments)).next());
 	});

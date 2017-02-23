@@ -14,7 +14,7 @@ target：操作的对象
 name：名字字符串
 value：要赋的值
 receiver：这个比较怪，因为类里可以有getter/setter属性，这两种操作可以在代码块里使用`this`，如果要用Reflect操作的话，receiver就会代替这个`this`。
-即使是类的private变量也能获取到。
+Reflect的操作即使是类的private变量也能获取到。
 
 ```ts
 class Test{
@@ -70,7 +70,7 @@ console.info(Reflect.apply(t["add"], t, [1, 2])); // 3, 虽然t["add"]可以直�
 ```
 
 ## **define/delete property**
-define相比之前就真是简单把Object替换成了Reflect，delete和`delete obj[name]`一样。
+define相比之前就真是简单把Object替换成了Reflect，delete和`delete obj[name]`效果一样。
 
 ```ts
 Reflect.defineProperty(target, propertyKey, attributes);
@@ -84,7 +84,7 @@ Reflect.defineProperty(t, 'time', {
   value: Date.now()
 });
 
-console.info(t.time); // number
+console.info(t.time); // 一串数字
 
 //delete
 let d = {time: 111};
@@ -93,7 +93,7 @@ Reflect.deleteProperty(d, 'time'); // 成功的话返回true，否则返回false
 console.info(d.time); // undefined
 ```
 可以看到define的参数`attributes`是一个PropertyDescriptor对象，`value`就是值，其他还有`writable, enumerable, configurable`用来控制属性的权限。
-需要注意的是deleteProperty对class是无效的，class的属性
+对于delete，需要注意的是deleteProperty对class的属性是无效的。
 
 ## **has ownKeys**
 `ownKeys`返回的是对象所有属性，包括不可枚举的，如Symbol之类。
