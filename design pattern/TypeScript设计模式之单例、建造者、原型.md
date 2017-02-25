@@ -1,6 +1,6 @@
 看看用TypeScript怎样实现常见的设计模式，顺便复习一下。
 
-# 单例模式
+# 单例模式 Singleton
 
 ### 特点：在程序的生命周期内只有一个全局的实例，并且不能再new出新的实例。
 
@@ -69,7 +69,7 @@ Cache.Instance.get('name');
 ```
 可以看到TypeScript的静态实例Instance其实是直接加到了Cache本身上面，当然也就确保了不会再new出新的来。
 
-# 建造者模式
+# 建造者模式 Builder
 
 ### 特点：一步一步来构建一个复杂对象，可以用不同组合或顺序建造出不同意义的对象，通常使用者并不需要知道建造的细节，通常使用链式调用来构建对象。
 
@@ -138,3 +138,50 @@ let postRequest = new RequestBuilder()
 这里有个问题是`RequestBuilder`需不需要抽象出来，个人觉得要看情况而定。
 首先是保持简单，不去套UML，只是一个简单的构造功能给内部使用也没必要抽象来增加代码复杂度，但如果业务上这个Builder是封装在一个库里面并且要对外提供服务，那还是需要一个抽象来隐藏细节，消除对实现的依赖。
 并且如果业务上还需要不同的RequestBuilder，比如说`XmlRequestBuilder` `JsonRequestBuilder`之类，那就更需要一个抽象了。
+
+# 原型模式 Prototype
+
+### 特点：不需要知道对象构建的细节，直接从对象上克隆出来。
+
+### 用处：当对象的构建比较复杂时或者想得到目标对象相同内容的对象时可以考虑原型模式。
+
+### 注意：深拷贝和浅拷贝。
+
+JavaScript对这个应该是太了解了，天生就有Prototype，通过Object.create就可以根据对象原型创建一个新的对象。
+
+```ts
+class Origin{
+    name: string
+}
+
+let origin = new Origin();
+origin.name = 'brook';
+
+let target = Object.create(origin);
+console.log(target.name);
+```
+不过还是用代码简单实现一下原型模式
+
+```ts
+interface Clonable<T>{
+    clone(): T;
+}
+
+class Origin implements Clonable<Origin>{
+    name: string;
+
+    clone(): Origin{
+        let target = new Origin();
+        target.name = this.name;
+        return target;
+    }
+}
+
+let origin = new Origin();
+origin.name = 'brook';
+
+let target = origin.clone();
+console.log(target.name); // brook
+```
+实现Clonable接口的都具有Clone功能，通过Clone功能就可以实现对象的快速复制，如果属性很多，想另外创建同样的对象，属性值也差不多相同的时候原型就可以派上用场。
+当然，还是要注意深拷贝和浅拷贝的问题，上面的代码只有string，所以浅拷贝没有问题，如果有对象就需要注意浅拷贝是否能满足要求。
