@@ -1,8 +1,12 @@
 用过WebApi或Asp.net MVC的都知道微软的路由设计得非常好，十分方便，也十分灵活。虽然个人看来是有的太灵活了，team内的不同开发很容易使用不同的路由方式而显得有点混乱。 不过这不是重点，我在做Node项目的时候就觉得不停的用`use(...)`来指定路由路径很烦人，所以用`Typescript`写了这个基于`Koa`和`Koa-router`的路由插件，可以简单实现一些类似WebApi的路由功能。
 
-目标是和WebApi一样，加入的controller会自动加入路由，也可以手动指定路由。 可以定义是`GET`或`POST`等等。 可以方便的得到路由里的参数，比如 路径参数，Query参数，post body等。
+目标是和WebApi一样:
+1. 加入的controller会自动加入路由。
+2. 也可以通过path()手动指定路由。 
+3. 可以定义http method， 如`GET`或`POST`等。
+4. Api的参数可以指定url里的query param、path param以及body等。
 
-已经上传到npm中，npm install webapi-router 安装，可以先看看效果：
+包已经上传到npm中，npm install webapi-router 安装，可以先看看效果：
 
 ### **第一步，先设置controllers的目录和url的固定前缀**
 
