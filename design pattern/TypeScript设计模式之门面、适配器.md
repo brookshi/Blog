@@ -103,14 +103,20 @@ class Line{
 class FanShape{
     draw(angle: number); // 画扇形
 }
+```
+项目没必要和第三方的库紧耦合，所以按需求抽象出一个接口Graph：
 
+```ts
 // 项目接口
 interface Graph{ // 只需要两种图表， 线图和饼图
     drawLineChart();
 
     drawPieChart();
 }
+```
+再用第三方库里的画图功能实现这个接口：
 
+```ts
 class Chart implements Graph{ // 实现接口
     drawLineChart(){
         new Axis().draw();
@@ -124,7 +130,7 @@ class Chart implements Graph{ // 实现接口
     }
 }
 ```
-项目只需要通过Graph接口来画图表就好了，而不用具体的细节。
+这样项目只需要通过Graph接口来画图表就好了，而不用知道具体的细节。
 
 与适配器相同的点是同样是一种封装处理，不同的是适配器已有一个接口，而用这个接口不能使用另外一个系统，这时需要把那个系统做个适配来匹配现有接口，重点在于兼容接口,解决冲突。
 而外观则是封装现有系统来对外提供一种简单的使用方式，重点在于简化调用。

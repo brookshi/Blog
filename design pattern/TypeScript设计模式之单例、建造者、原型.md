@@ -157,8 +157,8 @@ class Origin{
 let origin = new Origin();
 origin.name = 'brook';
 
-let target = Object.create(origin);
-console.log(target.name);
+let cloneObj = Object.create(origin);
+console.log(cloneObj.name); // brook
 ```
 不过还是用代码简单实现一下原型模式
 
@@ -180,8 +180,8 @@ class Origin implements Clonable<Origin>{
 let origin = new Origin();
 origin.name = 'brook';
 
-let target = origin.clone();
-console.log(target.name); // brook
+let cloneObj = origin.clone();
+console.log(cloneObj.name); // brook
 ```
 实现Clonable接口的都具有Clone功能，通过Clone功能就可以实现对象的快速复制，如果属性很多，想另外创建同样的对象，属性值也差不多相同的时候原型就可以派上用场。
 当然，还是要注意深拷贝和浅拷贝的问题，上面的代码只有string，所以浅拷贝没有问题，如果有对象就需要注意浅拷贝是否能满足要求。
