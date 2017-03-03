@@ -88,6 +88,142 @@ start
 
 finish
 ```
-这就是管道处理最基本的代码，用到的就是职责链模式。
+处理的顺序就是 12*21,中间*是真正取数据的，这就是管道处理最基本的代码，用到的就是职责链模式。
 
-当然职责链的处理有很多方式，这里采用的是装饰的方式从上到下给Handler添加新的处理功能，还可以采用队列或栈方式保存所有handler，按顺序执行。
+当然职责链的形成有很多方式，这里采用的是保存下一个的引用的方式来形成一个链表，还可以采用队列或栈方式保存所有handler，按顺序执行。
+
+# 命令模式 Command
+
+### 特点：把请求封装成命令对象，命令对象里包含有接收者，这样client只需要发送命令，接收者就可以做出相关响应或相反的响应。
+
+### 用处：当需要发送者和接收者解耦时可以考虑命令模式，常用于事件响应，请求排除，undo/redo等。
+
+### 注意：。
+
+下面用TypeScript简单实现一个支持undo/redo的命令模式：
+遥控器算是典型的命令模式，按个按钮命令电话做相关响应，假设遥控器有三种功能，开、关和换台。
+
+建个Command、undo/redo以及控制接口：
+
+```ts
+interface Executable{
+    execute();
+}
+
+interface UndoRedoable{
+    undo(param: {});
+    redo(param: {});
+}
+
+interface Controllable{
+
+    channelNum: number;
+
+    open();
+    close();
+    switch(channelNum: number);
+}
+```
+建个undo/redo管理器：
+
+```ts
+class UndoRedoManager{
+
+    private static memoList: Array<MemoItem> = [];
+
+    static push(command: Command, param: {}){
+        this.memoList.push({command, param});
+    }
+
+    static redo(){
+        let memoItem = this.memoList[this.memoList.length - 1];
+        memoItem.command.execute(memoItem.param);
+    }
+
+    static undo() {
+        let memoItem = this.memoList.pop();
+        memoItem.command.undo(memoItem.param);
+    }
+}
+```
+
+抽象个Command:
+
+```ts
+abstract class Command implements Executable, UndoRedoable{
+
+    constructor(protected controller: Controllable) { }
+
+    execute(param: {}){
+        UndoRedoManager.push(this, param);
+    }
+
+    redo(){
+        UndoRedoManager.redo();
+    }
+
+    undo(){
+       UndoRedoManager.undo(); 
+    }
+}
+```
+
+接下来分别实现 开、关、换台命令：
+
+```ts
+class OpenCommand extends Command{
+
+    execute(param: {}){
+        super.execute(param);
+        this.controller.open();
+    }
+
+    undo(param: {}){
+        this.controller.close();
+    }
+}
+
+class CloseCommand extends Command{
+
+    execute(param: {}){
+        super.execute(param);
+        this.controller.close();
+    }
+
+    undo(param: {}){
+        this.controller.open();
+    }
+}
+
+class SwitchCommand extends Command{
+
+    execute(param: {}){
+        super.execute({lastChannelNum:}});
+        this.controller.switch(param.channelNum);
+    }
+
+    undo(param: {}){
+        this.controller.switch(param.channelNum);
+    }
+}
+```
+再来实现 电视：
+
+```ts
+class TV implements Controllable{
+    channelNum: number = 0;
+
+    open(){
+        console.log('open tv');
+    }
+
+    close(){
+        console.log('close tv');
+    }
+
+    switch(channelNum: number){
+        this.channelNum = channelNum;
+        console.log(`switch to channel ${this.channelNum}`);
+    }
+}
+```
