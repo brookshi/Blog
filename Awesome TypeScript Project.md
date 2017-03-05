@@ -1,22 +1,22 @@
-TypeScript出来有段时间了，也冒出了很多用TypeScript开发的优秀开源项目，下面我搜寻了一些基于TypeScript项目，给大家分享一下：
+TypeScript出来有段时间了，也冒出了很多用TypeScript开发的优秀开源项目，搜寻了一些基于TypeScript项目，分享给大家：
 
 [https://github.com/brookshi/awesome-typescript-projects](https://github.com/brookshi/awesome-typescript-projects)
 
 ## **TypeScript**
 可能有人奇怪这里说的是基于TypeScript的开源项目，为什么TypeScript本身也在这里。
 其实TypeScript语言本身就是用TypeScript编写的，即self-hosting，使用上一稳定版本的编译器来编译本次版本。
-TypeScript就不做太多介绍了，不熟悉的同学可以参考我之前写的 C#到TypeScript系列。
+TypeScript就不做太多介绍了，不熟悉的同学可以参考我之前写的 [C#到TypeScript系列](http://www.cnblogs.com/brookshi/p/6361792.html)。
 
 ## **IDE - VSCode**
 基于TypeScript + Nodejs + Electron开发的IDE. Github上star: 2万+
 
-VSCode大家应该都知道，同样是微软开发，没使用过的建议试用下，相对于Visual Studio的笨重，VSCode非常轻，占用内存少，打开项目速度很快，而且跨平台，非常适合用来做前端或Nodejs开发。
-支持的特性也很多，通过扩展能支持非常多的语言，比如C#, GO, C++等，最近发的包还原生支持Markdown语法，我的文章都是用VSCode写的。
+VSCode大家应该都知道，同样是微软开发，没使用过的建议试用下，相对于Visual Studio的笨重，VSCode非常轻，占用内存少，打开项目速度快，而且跨平台，非常适合用来做前端或Nodejs开发。
+支持的特性也很多，通过扩展能支持非常多的语言，比如C#, GO, C++等，最近发布的包还原生支持Markdown语法，我的文章都是用VSCode写的。
 打开大文件真的是秒开，之前用Notepad++打开大文件还有点迟顿，格式化成Json更是直接卡死，VSCode则完全没问题。
 
 ![](https://cloud.githubusercontent.com/assets/11839736/16642200/6624dde0-43bd-11e6-8595-c81885ba0dc2.png)
 
-其他基于TypeScript的IDE还有 在线IDE monaco-edit，游戏开发IDE superpowers等，有兴趣的同学可以去[awesome typescript projects](https://github.com/brookshi/awesome-typescript-projects)了解下。
+其他基于TypeScript的IDE还有： 在线IDE monaco-edit，游戏开发IDE superpowers等，有兴趣的同学可以去[awesome typescript projects](https://github.com/brookshi/awesome-typescript-projects)了解下。
 
 ## **Framework - Angular2**
 基于TypeScript + RxJS + ZoneJS的Framework. Github上star: 2万+
@@ -28,13 +28,13 @@ VSCode大家应该都知道，同样是微软开发，没使用过的建议试�
 
 在Angular2上衍生了不少优秀的框架或库，如 angular-seed，material2, ui-router等。
 
-其他还有很多诸如 ionic，NativeScript，AtomicGameEngine的优秀框架都是用TypeScript开发的，国内的白鹭引擎(egret)同样基于TypeScript。
+其他框架还有很多诸如 ionic，NativeScript，AtomicGameEngine的优秀框架都是用TypeScript开发的，国内的白鹭引擎(egret)同样基于TypeScript。
 
 ## **UI - ant-design**
 基于TypeScript + React的UI界面库. Github上star: 1万+
 
 ant-design是由国内阿里旗下的蚂蚁金服的团队用TypeScript开发的一款企业级React UI库，已经应用到金服和其他阿里旗下产品当中。
-ant-design的UI看起来非常美观，而且不显累赘，文档也非常完整，重要的是文档是中文版的，相信非常适合国内开发使用。
+ant-design的UI看起来非常美观，而且不显累赘，文档也非常完整，重点是文档是中文版的，相信非常适合国内开发使用。
 
 ![](https://github.com/brookshi/awesome-typescript-projects/raw/master/images/antdesign/case.png)
 
@@ -42,7 +42,7 @@ ant-design也推出了mobile版ant-design-mobile，这样不管是web端还是�
 
 ![](https://github.com/brookshi/awesome-typescript-projects/raw/master/images/antdesign/mobilecase.png)
 
-同样基于TypeScript的UI库还有不少，如Angular的material2，和ant-design有一拼的blueprint都是其中皎皎者。
+同样基于TypeScript的UI库还有不少，如Angular的material2，和ant-design有一拼的blueprint都是其中佼佼者。
 
 ## **library - ui-router**
 基于TypeScript + Angular的UI router库. Github上star: 1万+
