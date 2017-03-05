@@ -68,7 +68,7 @@ m4a1 shoot.
 
 ### 注意：这不是所谓的简单工厂的升级版，两者有不同的应用场景。
 
-下面用TypeScript写一个枪工厂来看看工厂方法模式：
+继续用TypeScript写一个枪工厂来看看工厂方法模式：
 
 ```ts
 interface Shootable{
