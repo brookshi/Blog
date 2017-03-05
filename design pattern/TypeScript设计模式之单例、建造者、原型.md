@@ -77,7 +77,7 @@ Cache.Instance.get('name');
 
 ### 注意：和工厂模式的区别，工厂是生产产品，谁生产，怎样生产无所谓，而建造者重在组装产品，层级不一样。
 
-下面用TypeScript写一个RequestBuilder来看看建造者模式：
+下面用TypeScript写一个Http的RequestBuilder来看看建造者模式：
 
 ```ts
 enum HttpMethod{
@@ -85,7 +85,7 @@ enum HttpMethod{
     POST,
 }
 
-class HttpRequest {}
+class HttpRequest {} //假设这是最终要发送的request
 
 class RequestBuilder{
 
@@ -183,5 +183,5 @@ origin.name = 'brook';
 let cloneObj = origin.clone();
 console.log(cloneObj.name); // brook
 ```
-实现Clonable接口的都具有Clone功能，通过Clone功能就可以实现对象的快速复制，如果属性很多，想另外创建同样的对象，属性值也差不多相同的时候原型就可以派上用场。
+实现Clonable接口的都具有Clone功能，通过Clone功能就可以实现对象的快速复制，如果属性很多，想另外创建属性值也差不多相同的对象，原型就可以派上用场。
 当然，还是要注意深拷贝和浅拷贝的问题，上面的代码只有string，所以浅拷贝没有问题，如果有对象就需要注意浅拷贝是否能满足要求。
