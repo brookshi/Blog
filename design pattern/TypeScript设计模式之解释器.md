@@ -13,7 +13,7 @@
 下面用TypeScript写一个简单正则表达式的解释器：
 要解释的表达式有：{}, [], \d, ^, $这几种。
 
-先建立一个Expression接口，所有表达式都实现这个接口：
+先建立一个Expression接口，所有解释器都实现这个接口：
 ```ts
 interface Expression{
     interpret(context: Context);
@@ -28,7 +28,6 @@ currentTextIndex: 当前验证到text里的哪个字符的位置
 isMatch: 是否匹配成功
 ```ts
 class Context{
-    //pattern: 整个表达式
     constructor(public pattern: string, public text: string){
 
     }
