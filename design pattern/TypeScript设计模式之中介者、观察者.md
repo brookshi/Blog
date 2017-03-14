@@ -133,7 +133,7 @@ user.pay();
 车子状态：闲置
 付款
 ```
-这样，用户的目的只是叫车，对中介说声，中介派出车，用户不管是什么车，哪来的，把我送到目的车就可以了。
+这样，用户的目的只是叫车，对中介说声，中介派出车，用户不管是什么车，哪来的，把我送到目的地就可以了。
 这就是中介者模式的作用，逻辑都在自己这里，用户不需要管车，车子也不用管用户，一个叫车，一个接单，互不干扰，突然想到了拉皮条。。。
 当然也是因为这里聚集了各方面的逻辑，所以要注意中介者本身的复杂度，中介者本身也需要良好的设计和模式来提高代码的可读性和可维护性。
 
@@ -210,12 +210,12 @@ class Group implements Subject{
 写段代码测试一下：
 ```ts
 let group = new Group();
-let user1 = new User1('jim', group);
-let user2 = new User1('brook', group);
-let user3 = new User1('lucy', group);
+let jim = new User1('jim', group);
+let brook = new User1('brook', group);
+let lucy = new User1('lucy', group);
 
-user1.sendMsg('hello');
-user3.sendMsg('well done!');
+jim.sendMsg('hello');
+lucy.sendMsg('well done!');
 //结果：
 jim 发送 hello
 群收到jim发信息：hello，通知所有人
