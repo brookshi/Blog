@@ -1,4 +1,4 @@
-Hitchhiker 是一款开源的 Restful Api 集成测试工具，你可以在轻松部署到本地，和你的team成员一起管理Api。
+Hitchhiker 是一款开源的 Restful Api 集成测试工具，你可以在轻松部署到本地，和你的team成员一起协作管理Api。
 
 先上图看看：
 
@@ -72,7 +72,7 @@ windows 请参考 [deploy to win](https://github.com/brookshi/Hitchhiker/blob/ma
 
 ### 开源
 
-可以访问 http://hitchhiker-api.com/ 来使用，点击 `try without login` 免注册登录，另外，为了免备案，服务器在海外的，所以速度上可能会有点慢，抽疯时甚至可能访问不了，请谅解。
+可以访问 http://www.hitchhiker-api.com/ 来使用，点击 `try without login` 免注册登录，另外，为了免备案，服务器在海外的，所以速度上可能会有点慢，抽疯时甚至可能访问不了，请谅解。
 
 当然最好还是在本地局域网部署，用起来会比较爽。
 
