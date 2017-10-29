@@ -1,77 +1,498 @@
-TypeScript出来有段时间了，也冒出了很多用TypeScript开发的优秀开源项目，搜寻了一些基于TypeScript项目，分享给大家：
+# awesome-typescript-projects [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+awesome typescript open source projects.
 
-[https://github.com/brookshi/awesome-typescript-projects](https://github.com/brookshi/awesome-typescript-projects)
+## Contributing
 
-## **TypeScript**
-可能有人奇怪这里说的是基于TypeScript的开源项目，为什么TypeScript本身也在这里。
-其实TypeScript语言本身就是用TypeScript编写的，即self-hosting，使用上一稳定版本的编译器来编译本次版本。
-TypeScript就不做太多介绍了，不熟悉的同学可以参考我之前写的 [C#到TypeScript系列](http://www.cnblogs.com/brookshi/p/6361792.html)。
+Please take a quick look at the [contribution guidelines](/contributing.md) first. If you see a package or project here that is no longer maintained or is not a good fit, please submit a pull request to improve this file, Thanks.
 
-## **IDE - VSCode**
-基于TypeScript + Nodejs + Electron开发的IDE. Github上star: 2万+
+## TypeScript
 
-VSCode大家应该都知道，同样是微软开发，没使用过的建议试用下，相对于Visual Studio的笨重，VSCode非常轻，占用内存少，打开项目速度快，而且跨平台，非常适合用来做前端或Nodejs开发。
-支持的特性也很多，通过扩展能支持非常多的语言，比如C#, GO, C++等，最近发布的包还原生支持Markdown语法，我的文章都是用VSCode写的。
-打开大文件真的是秒开，之前用Notepad++打开大文件还有点迟顿，格式化成Json更是直接卡死，VSCode则完全没问题。
+### [TypeScript](https://github.com/Microsoft/TypeScript) - TypeScript is a superset of JavaScript that compiles to clean JavaScript output.
+
+TypeScript is a language for application-scale JavaScript. TypeScript adds optional types, classes, and modules to JavaScript. TypeScript supports tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to readable, standards-based JavaScript.
+
+### [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) - for high quality TypeScript type definitions
+
+-----
+
+
+## Learning Resources
+
+### [TypeScript-Handbook](https://github.com/Microsoft/TypeScript-Handbook) - The TypeScript Handbook is a comprehensive guide to the TypeScript language
+
+### [typescript-book](https://github.com/basarat/typescript-book) - The definitive guide to TypeScript and possibly the best TypeScript book
+
+### [design_patterns_in_typescript](https://github.com/torokmark/design_patterns_in_typescript) - Here are the implementations of the following design patterns in TypeScript
+
+### [TypeScriptSamples](https://github.com/Microsoft/TypeScriptSamples) - Samples for TypeScript
+
+### [angular-styleguide](https://github.com/toddmotto/angular-styleguide) - AngularJS styleguide for teams
+
+### [angular2-education](https://github.com/timjacobi/angular2-education) - A list of helpful material to develop using Angular
+
+### [angular2typescript](https://github.com/Farata/angular2typescript) - Code samples from the book Angular 2 Development with TypeScript
+
+### [todomvc-redux-react-typescript](https://github.com/jaysoo/todomvc-redux-react-typescript) - TodoMVC example using Redux, React, and Typescript
+
+-----
+
+
+## IDE
+
+### [vscode](https://github.com/Microsoft/vscode) - The best open source IDE
+
+VS Code is a new type of tool that combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. Code provides comprehensive editing and debugging support, an extensibility model, and lightweight integration with existing tools.
 
 ![](https://cloud.githubusercontent.com/assets/11839736/16642200/6624dde0-43bd-11e6-8595-c81885ba0dc2.png)
 
-其他基于TypeScript的IDE还有： 在线IDE monaco-edit，游戏开发IDE superpowers等，有兴趣的同学可以去[awesome typescript projects](https://github.com/brookshi/awesome-typescript-projects)了解下。
 
-## **Framework - Angular2**
-基于TypeScript + RxJS + ZoneJS的Framework. Github上star: 2万+
+### [monaco-editor](https://github.com/Microsoft/monaco-editor) - A browser based code editor
 
-大名鼎鼎的前端三剑客之一，背后的老爹Google确保了Angular的质量，Angular从Angular2开始采用TypeScript来开发，强类型对框架的稳定性提供不少支持。
-微软Azure的页面就是用Angular写的，下面这个也是Angular2的一个dashboard应用。
+The Monaco Editor is the code editor that powers VS Code.
 
-![](https://camo.githubusercontent.com/2dc499a9333ca5534cba0593956e68d43c7f3f92/687474703a2f2f692e696d6775722e636f6d2f514b39417a486a2e6a7067)
+![](https://cloud.githubusercontent.com/assets/5047891/19600675/5eaae9e6-97a6-11e6-97ad-93903167d8ba.png)
 
-在Angular2上衍生了不少优秀的框架或库，如 angular-seed，material2, ui-router等。
 
-其他框架还有很多诸如 ionic，NativeScript，AtomicGameEngine的优秀框架都是用TypeScript开发的，国内的白鹭引擎(egret)同样基于TypeScript。
+### [ALM](https://github.com/alm-tools/alm) - The best IDE for TypeScript
 
-## **UI - ant-design**
-基于TypeScript + React的UI界面库. Github上star: 1万+
+With great languages come great development tools.
 
-ant-design是由国内阿里旗下的蚂蚁金服的团队用TypeScript开发的一款企业级React UI库，已经应用到金服和其他阿里旗下产品当中。
-ant-design的UI看起来非常美观，而且不显累赘，文档也非常完整，重点是文档是中文版的，相信非常适合国内开发使用。
+![](https://raw.githubusercontent.com/alm-tools/alm-tools.github.io/master/screens/main.png)
 
-![](https://github.com/brookshi/awesome-typescript-projects/raw/master/images/antdesign/case.png)
+![](https://raw.githubusercontent.com/alm-tools/alm-tools.github.io/master/screens/blaster.gif)
 
-ant-design也推出了mobile版ant-design-mobile，这样不管是web端还是移动端都可以有同一套UI设定。
 
-![](https://github.com/brookshi/awesome-typescript-projects/raw/master/images/antdesign/mobilecase.png)
+### [superpowers](https://github.com/superpowers/superpowers-core) - Extensible HTML5 app for real-time collaborative projects
 
-同样基于TypeScript的UI库还有不少，如Angular的material2，和ant-design有一拼的blueprint都是其中佼佼者。
+Superpowers is a downloadable HTML5 app. You can use it solo like a regular offline game maker, or setup a password and let friends join in on your project through their Web browser. It's great for working together over long periods of time, for jamming over a weekend, or just for helping each other out with debugging!
 
-## **library - ui-router**
-基于TypeScript + Angular的UI router库. Github上star: 1万+
+![](https://camo.githubusercontent.com/70aeb8dce6a944e4c7b0562b7e9dbee270ffca28/687474703a2f2f692e696d6775722e636f6d2f6734694e6c456e2e706e67)
 
-ui-router的目的是提供一个管理UI跳转的库，基于状态机维护了一个层级的状态树，这个库对于单页应用来说非常有用。
-现在应用页面非常多，如果没有一个管理中心的话，不停的跳转后状态很容易乱掉，这个库就是用来解决这个问题。
 
-下图最底下的那条就是页面的路由，在微软的Azure上也有用到。
-![](https://raw.githubusercontent.com/brookshi/awesome-typescript-projects/master/images/ui-router.png)
+### [eve](https://github.com/witheve/eve) - Better tools for thought
 
-## **library - RxJS**
-这个库现在出到5代，之前是用JavaScript开发，5代开始采用TypeScript开发。 Github上star: 5千+
+Eve is a programming language and IDE based on years of research into building a human-first programming platform. You can play with Eve online here: [play.witheve.com](http://play.witheve.com/).
 
-当然第四代是很出名的，Github已经有超过1万的star。
-这个库算是响应式编程库家庭中的一员，其他还有RxJava，Rx.NET，RxGO等。
+[![Play With Eve](http://witheve.github.io/assets/images/editor.png)](http://play.witheve.com/#/examples/flappy.eve)
 
-RxJS是基于流的概念，提供了一系列神奇的函数工具集，使用它们可以合并、创建、过滤这些流。 
-一个流或者多个流可以作为另一个流的输入。比如你可以合并多个流，或者从很多流中选出你需要的，还可以将值从一个流映射到另一个流。
-这种方式对于事件的处理会非常方便，具体可以去github上查看相关文档。
 
-![](https://raw.githubusercontent.com/Reactive-Extensions/RxJS/master/doc/designguidelines/images/throttleWithTimeout.png)
+### [cats](https://github.com/jbaron/cats) - Code Assistant for TypeScript
 
-## **tool - tslint**
-做JavaScript开发的有ESLint来规范代码，而TypeScript则可以用TSLint。 Github上star: 1千+
+CATS is an IDE for TypeScript and Web developers. CATS is open source software released under the Apache 2.0 license and runs on Linux, Windows and OS X. CATS itself is also written in TypeScript, so you can easily customize it to your needs if required.
 
-开发一个项目往往有好几个甚至十几人，不同的人不同的代码风格，这时就需要一款工具来规范一下代码，来提高代码质量和可维护性。
-基本上上面写的项目都有用到这款工具，可见其流行程度。
+![](https://camo.githubusercontent.com/cdadf09336bea233a036511c6649e2c4ecbc7fbd/68747470733a2f2f7261772e6769746875622e636f6d2f6a6261726f6e2f636174732f6d61737465722f6172746966616374732f636174735f73637265656e73686f742e706e67)
 
-## **总结**
-上面从IDE, Framework, UI, 库，工具等方面分别介绍了一些TypeScript的流行开源项目，其它还有很多有潜力的项目如Nodejs的ORM框架：TypeORM等，大家可以去[awesome typescript projects](https://github.com/brookshi/awesome-typescript-projects)翻翻。
-这些都说明TypeScript已经非常成熟，稳定了，而且上面项目有一些是从JavaScript转过来的重新打造的项目，由此可以说明TypeScript确实可以给项目带来实实在在的好处。
-TypeScript的发展还在继续，做为微软走向开源的一个标志性项目，有理由相信TypeScript将来会有很好的发展。
+-----
+
+
+## Framework 
+
+### [angular](https://github.com/angular/angular) - One framework. Mobile & desktop.
+
+Angular is a development platform for building mobile and desktop web applications using Typescript/JavaScript (JS) and other languages.
+
+
+### [ngx-admin](https://github.com/akveo/ngx-admin) - Angular 2 admin dashboard framework
+
+Admin panel framework based on Angular 2, Bootstrap 4 and Webpack.
+
+[Demo Page](http://akveo.com/ngx-admin/)
+
+![case](https://camo.githubusercontent.com/33036bf7ec00d508575b5207a5799052cda93825/68747470733a2f2f692e696d6775722e636f6d2f586f4a7466764b2e676966)
+
+
+### [angular-seed](https://github.com/mgechev/angular-seed) - Extensible, reliable and modular starter project for Angular 2 (and beyond) with statically typed build and AoT compilation
+
+Provides fast, reliable and extensible starter for the development of Angular projects.
+
+
+### [NativeScript](https://github.com/NativeScript/NativeScript) - NativeScript is an open source framework for building truly native mobile apps with JavaScript. Use web skills, like Angular, FlexBox and CSS, and get native UI and performance on iOS and Android
+
+NativeScript provides a best-of-both-worlds development experience. Our cross-platform JavaScript modules give you the convenience of writing iOS and Android apps from a single JavaScript codebase, while our runtimes give you the power of accessing native APIs, SDKs, and frameworks when you need them—all without needing to open Xcode or Android Studio. NativeScript was created and is supported by Telerik.
+
+*Mobile Case:*
+
+![case](images/nativescript/case.png)
+
+
+### [ionic](https://github.com/driftyco/ionic) - Build amazing native and progressive web apps with Angular and open web technologies. One app running on everything
+
+Ionic is the open-source mobile app development framework that makes it easy to build top quality native and progressive web apps with web technologies.
+Ionic is based on Angular and comes with many significant performance, usability, and feature improvements over the past versions.
+
+*Mobile Case:*
+
+![case](images/ionic/case.png)
+
+
+### [ionic-native](https://github.com/driftyco/ionic-native) - Native features for mobile apps built with Cordova/PhoneGap and open web technologies.
+
+Ionic Native is a curated set of wrappers for Cordova plugins that make adding any native functionality you need to your Ionic, Cordova, or Web View mobile app easy.
+
+
+### [egret](https://github.com/egret-labs/egret-core) - Egret is a brand new open mobile game and application engine which allows you to quickly build mobile games and apps on Android,iOS and Windows.
+
+Developed by Egret Technology, Egret Engine 4.0 includes a newly built 3D engine and a 2D engine created based on HTML5. With its robust cross-platform operability and commitment to solving the performance and fragmentation problems of HTML5 APP and games, Egret Engine 4.0 will perfectly meet developers’ needs. 
+
+*Game Case:*
+
+![case](images/egret/case.png)
+
+
+### [AtomicGameEngine](https://github.com/AtomicGameEngine/AtomicGameEngine) - The Atomic Game Engine is a multi-platform 2D and 3D engine with a consistent API in C#, JavaScript, TypeScript, and C++
+
+The Atomic Game Engine is powerful 2D/3D technology developed by industry veterans and contributors from around the world.
+
+Atomic is lean, full source, technology for mobile and desktop. It has a powerful core API with access to raw, down to the metal, native performance. Atomic technology leverages industry standard languages and tooling for use in games, education/training, serious applications, and new growth areas such as AR/VR.
+
+![case](https://camo.githubusercontent.com/d761a63cb469a09de3ffc2323099b4431b152cde/687474703a2f2f61746f6d696367616d65656e67696e652e636f6d2f696d616765732f686f6d652f526f626f4265616368323031372e706e67)
+
+
+### [Babylon.js](https://github.com/BabylonJS/Babylon.js) - a complete JavaScript framework for building 3D games with HTML 5 and WebGL
+
+Getting started? Play directly with the Babylon.js API via our [playground](http://www.babylonjs.com/playground). It contains also lot of simple samples to learn how to use it. 
+
+![case](images/babylonjs/case.png)
+
+
+### [cyclejs](https://github.com/cyclejs/cyclejs) - A functional and reactive JavaScript framework for predictable code
+
+Cycle’s core abstraction is your application as a pure function main() where inputs are read effects (sources) from the external world and outputs (sinks) are write effects to affect the external world. These I/O effects in the external world are managed by drivers: plugins that handle DOM effects, HTTP effects, etc.
+
+```ts
+function main(sources) {
+  const decrement$ = sources.DOM
+    .select('.decrement').events('click').mapTo(-1);
+
+  const increment$ = sources.DOM
+    .select('.increment').events('click').mapTo(+1);
+
+  const action$ = xs.merge(decrement$, increment$);
+  const count$ = action$.fold((x, y) => x + y, 0);
+
+  const vtree$ = count$.map(count =>
+    div([
+      button('.decrement', 'Decrement'),
+      button('.increment', 'Increment'),
+      p('Counter: ' + count)
+    ])
+  );
+  return { DOM: vtree$ };
+}
+```
+
+
+### [angular-seed-advanced](https://github.com/NathanWalker/angular-seed-advanced) - An advanced Angular seed project with support for ngrx/store, ngrx/effects, ngx-translate, angulartics2, lodash, NativeScript (*native* mobile), Electron (Mac, Windows and Linux desktop) and more.
+
+![case](https://camo.githubusercontent.com/b00e9ecb9c7b2e92ec9c9af1470002ce9d3ea878/68747470733a2f2f63646e2e66696c65737461636b636f6e74656e742e636f6d2f7a5a6c514b4b4b6a515561427239704c6b45564b)
+
+![case](https://camo.githubusercontent.com/2785b726e1f1d813d41a268d65f6b1b844ee0497/68747470733a2f2f643277703473686b6e6a63666a6c2e636c6f756466726f6e742e6e65742f6170692f66696c652f314f34465247735348533867304c7a33454b4e79)
+
+-----
+
+
+## UI
+
+### [material2](https://github.com/angular/material2) - Material Design components for Angular
+
+Our goal is to build a set of high-quality UI components built with Angular and TypeScript, following the Material Design spec. These components will serve as an example of how to write Angular code following best practices.
+
+![](images/material.png)
+
+
+### [ant-design](https://github.com/ant-design/ant-design) - A UI Design Language
+
+An enterprise-class UI design language and React-based implementation.
+
+![](images/antdesign/case.png)
+
+
+### [ant-design-mobile](https://github.com/ant-design/ant-design-mobile) - A configurable Mobile UI
+
+A configurable Mobile UI specification and React-based implementation.
+
+![](images/antdesign/mobilecase.png)
+
+
+### [blueprint](https://github.com/palantir/blueprint) - A React-based UI toolkit for the web
+
+It is optimized for building complex, data-dense web interfaces for desktop applications. If you rely heavily on mobile interactions and are looking for a mobile-first UI toolkit, this may not be for you.
+
+![](images/blueprintjs/ui.png)
+
+
+### [plottable](https://github.com/palantir/plottable) - A library of modular chart components built on D3
+
+It's easier to quickly build charts than with D3, and the charts are much more flexible than standard-template charts provided by charting libraries.
+
+![](images/plottablejs/charts.png)
+
+
+### [ng2-bootstrap](https://github.com/valor-software/ng2-bootstrap) - Native Angular directives for Bootstrap
+
+ng2-bootstrap contains all core (and not only) Bootstrap components powered by Angular 2. So you don't need to include original JS components, but we are using markup and css provided by Bootstrap.
+
+![](images/ng2-bootstrap.png)
+
+
+### [ng2-charts](https://github.com/valor-software/ng2-charts) - Beautiful charts for Angular2 based on Chart.js
+
+There are one directive for all chart types: base-chart, and there are 6 types of charts: , line, bar, radar, pie, polarArea, doughnut.
+
+![](images/ng2-charts.png)
+
+
+### [ng2-handsontable](https://github.com/valor-software/ng2-handsontable) - Angular 2 directive for Handsontable
+
+Handsontable is a data grid component with an Excel-like appearance. Built in JavaScript, it integrates with any data source and comes with features like data validation, sorting, grouping, data binding or column ordering.
+
+![](images/handsontable.png)
+
+
+### [ng2-table](https://github.com/valor-software/ng2-table) - Simple table extension with sorting, filtering, paging... for Angular2 apps
+
+[Demo Page](http://valor-software.com/ng2-table/)
+
+![](images/ng2-table.png)
+
+
+### [ng2-tree](https://github.com/valor-software/ng2-tree) - Angular tree component. VERSION 2.0.0 is still an ALPHA!
+
+[Demo Page](http://valor-software.com/ng2-tree/)
+
+![](images/ng2-tree.png)
+
+
+### [ng2-select](https://github.com/valor-software/ng2-select) - Angular2 based replacement for select boxes
+
+[Demo Page](http://valor-software.com/ng2-select/)
+
+![](images/ng2-select.png)
+
+
+### [primeng](https://github.com/primefaces/primeng) - UI Components for Angular 2
+
+It's easier to quickly build charts than with D3, and the charts are much more flexible than standard-template charts provided by charting libraries.
+
+![](http://www.primefaces.org/primeng/showcase/resources/images/bootstrap.png)
+
+
+### [line-chart](https://github.com/n3-charts/line-chart) - Awesome charts for AngularJS
+
+n3-line-chart is an easy-to-use JavaScript library for creating beautiful charts in AngularJS applications and it is built on top of D3.js.
+
+![](https://cloud.githubusercontent.com/assets/2969388/12079874/36579ec8-b249-11e5-8c7f-ee3f724ff886.png)
+
+
+### [pie-chart](https://github.com/n3-charts/pie-chart) - Yummy pies and donuts for AngularJS
+
+Yummy pies and donuts for AngularJS applications. Built on top of the wonderful D3.js library.
+
+![](images/pie-chart.png)
+
+
+### [trNgGrid](https://github.com/MoonStorm/trNgGrid) - A feature rich Angular grid using standard HTML tables.
+
+trNgGrid can be used for simple to mildly complex scenarios where you quickly need a data grid with a decent amount of features, which is easy to learn and to hook up with your data models thanks to its powerful data binding properties. All the configuration parameters can be set directly inside the view, hence you won't muddy your Angular scopes or controllers with configuration details.
+
+![](images/table.png)
+
+-----
+
+
+## Library
+
+### [ui-router](https://github.com/angular-ui/ui-router) - The de-facto solution to flexible routing with nested views in AngularJS
+
+UI-Router applications are modeled as a hierarchical tree of states. UI-Router provides a state machine to manage the transitions between those application states in a transaction-like manner.
+
+![](images/ui-router.png)
+
+
+### [mobx](https://github.com/mobxjs/mobx) - Simple, scalable state management.
+
+MobX is a battle tested library that makes state management simple and scalable by transparently applying functional reactive programming (TFRP).
+The philosophy behind MobX is very simple:
+
+_Anything that can be derived from the application state, should be derived. Automatically._
+
+which includes the UI, data serialization, server communication, etc.
+
+![](https://raw.githubusercontent.com/mobxjs/mobx/master/docs/flow.png)
+
+React and MobX together are a powerful combination. React renders the application state by providing mechanisms to translate it into a tree of renderable components. MobX provides the mechanism to store and update the application state that React then uses.
+
+Both React and MobX provide very optimal and unique solutions to common problems in application development. React provides mechanisms to optimally render UI by using a virtual DOM that reduces the number of costly DOM mutations. MobX provides mechanisms to optimally synchronize application state with your React components by using a reactive virtual dependency state graph that is only updated when strictly needed and is never stale.
+
+
+### [stryker](https://github.com/stryker-mutator/stryker) - The extendable JavaScript mutation testing framework.
+
+Professor X: For someone who hates mutants... you certainly keep some strange company.
+William Stryker: Oh, they serve their purpose... as long as they can be controlled.
+
+![](images/stryker/case.png)
+
+
+### [typeorm](https://github.com/typeorm/typeorm) - Data-Mapper ORM for TypeScript and JavaScript (ES7, ES6, ES5). Supports MySQL, PostgreSQL, MariaDB, SQLite, MS SQL Server, Oracle, WebSQL databases. Works in Node.js and Browser.
+
+TypeORM is an Object Relational Mapper (ORM) for node.js written in TypeScript that can be used with TypeScript or JavaScript (ES5, ES6, ES7). Its goal to always support latest JavaScript features and provide features that help you to develop any kind of applications that use database - from small applications with a few tables to large scale enterprise applications.
+
+```ts
+import {Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn} from "typeorm";
+import {Photo} from "./Photo";
+
+@Entity()
+export class PhotoMetadata {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column("int")
+    height: number;
+
+    @Column("int")
+    width: number;
+
+    @Column()
+    orientation: string;
+
+    @Column()
+    compressed: boolean;
+
+    @Column()
+    comment: string;
+
+    @OneToOne(type => Photo)
+    @JoinColumn()
+    photo: Photo;
+}
+```
+
+
+### [reflect-metadata](https://github.com/rbuckton/reflect-metadata) - Prototype for a Metadata Reflection API for ECMAScript
+
+Proposal to add Decorators to ES7, along with a prototype for an ES7 Reflection API for Decorator Metadata.
+
+
+### [apollo-client](https://github.com/apollographql/apollo-client) - A fully-featured, production ready caching GraphQL client for every server or UI framework
+
+Apollo Client is a fully-featured caching GraphQL client with integrations for React, Angular, and more. It allows you to easily build UI components that fetch data via GraphQL. To get the most value out of apollo-client, you should use it with one of its view layer integrations.
+
+
+### [postgraphql](https://github.com/calebmer/postgraphql) - A GraphQL API created by reflection over a PostgreSQL schema.
+
+With PostGraphQL, you can access the power of PostgreSQL through a well designed GraphQL server. PostGraphQL uses PostgreSQL reflection APIs to automatically detect primary keys, relationships, types, comments, and more providing a GraphQL server that is highly intelligent about your data.
+
+
+### [InversifyJS](https://github.com/inversify/InversifyJS) - An isomorphic dependency injection library.
+
+InversifyJS is an inversion of control library that works in both front-end and
+back-end applications. InversifyJS is framework agnostic and can be integrated with
+many existing frameworks like React applications powered by MobX or Node.js
+applications powered by express.
+
+InversifyJS is particularly well integrated with Express thanks to the
+[inversify-express-utils](https://github.com/inversify/inversify-express-utils) project:
+
+```ts
+import * as express from "express";
+import { Response, RequestParams, Controller, Get, Post, Put } from "inversify-express-utils";
+import { injectable, inject } from "inversify";
+import { interfaces } from "./interfaces";
+import { Type } from "./types";
+
+@injectable()
+@Controller("/api/user")
+class UserController {
+
+    @inject(Type.UserRepository) private readonly _userRepository: interfaces.UserRepository,
+    @inject(Type.Logger) private readonly _logger: interfaces.Logger
+
+    @Get("/")
+    public async get(
+      @Request() req: express.Request,
+      @Response() res: express.Response
+    ) {
+        try {
+            this._logger.info(`HTTP ${req.method} ${req.url}`);
+            return await this._userRepository.readAll();
+        } catch (e) {
+            this._logger.error(`HTTP ERROR ${req.method} ${req.url}`, e);
+            res.status(500).json([]);
+        }
+    }
+
+    @Get("/:email")
+    public async getByEmail(
+      @RequestParams("email") email: string,
+      @Request() req: express.Request,
+      @Response() res: express.Response
+    ) {
+        try {
+            this._logger.info(`HTTP ${req.method} ${req.url}`);
+            return await this._userRepository.readAll({ where: { email: email } });
+        } catch (e) {
+            this._logger.error(`HTTP ERROR ${req.method} ${req.url}`, e);
+            res.status(500).json([]);
+        }
+    }
+
+}
+```
+
+The [Inversify GitHub organization](https://github.com/inversify)
+also provides the community with some helpers and examples to facilitate the integration of InversifyJS with other popular projects.
+
+
+### [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript) - Create React apps using typescript with no build configuration.
+
+Create React apps (with Typescript) with no build configuration.
+
+Do you know react and want to try out typescript? Or do you know typescript and want to try out react? Get all the benefits from create-react-app but you use typescript!
+
+
+### [ReactXP](https://github.com/microsoft/reactxp) - ReactXP is a library for cross-platform app development using React and React Native.
+
+With React and React Native, your web app can share most its logic with your iOS and Android apps, but the view layer needs to be implemented separately for each platform. We have taken this a step further and developed a thin cross-platform layer we call ReactXP. If you write your app to this abstraction, you can share your view definitions, styles and animations across multiple target platforms. Of course, you can still provide platform-specific UI variants, but this can be done selectively where desired.
+
+
+### [json-schema-to-typescript](https://github.com/bcherny/json-schema-to-typescript) - Compile JSONSchema to TypeScript typings.
+
+
+### [deeplearnjs](https://github.com/PAIR-code/deeplearnjs) - Hardware-accelerated deep learning and linear algebra (NumPy) library for the web.
+
+deeplearn.js is an open source hardware-accelerated JavaScript library for machine intelligence. deeplearn.js brings performant machine learning building blocks to the web, allowing you to train neural networks in a browser or run pre-trained models in inference mode.
+
+We provide two APIs, an immediate execution model (think NumPy) and a deferred execution model mirroring the TensorFlow API. deeplearn.js was originally developed by the Google Brain PAIR team to build powerful interactive machine learning tools for the browser, but it can be used for everything from education, to model understanding, to art projects.
+
+--------
+
+## Application
+
+### [Hitchhiker](https://github.com/brookshi/Hitchhiker) - Hitchhiker Api is a Restful Api integrated testing tool that support Schedule, Response comparsion, Stress Test etc. You can deploy it in your local server. It make easier to manage Api with your team.
+
+* Api collaboration development with team
+* Api history
+* Multiple environments and Runtime variables support, easy to handle api dependence
+* Request parameterization, include ManytoMany and OnetoOne, now you can use a request to handle multple situation like various query string, body
+* Schedule and run batch
+* Make a comparison for Api response between two different environments (eg: stage vs product)
+* Support Handling response before comparing
+* Easy to deploy (support docker, windows, linux), keep data in your control, never lose data
+* All changed will be auto saved in local cache even if refresh page
+* Support importing Postman v1 collections
+* Distributed stress test
+* Api Document (in future)
+
+![](https://raw.githubusercontent.com/brookshi/images/master/Hitchhiker/stresstest.gif)
+
+
+### [upterm](https://github.com/railsware/upterm) - Upterm (formerly Black Screen) is an IDE in the world of terminals. Strictly speaking, it's both a terminal emulator and an interactive shell based on Electron.
+
+1. Autocompletion
+Upterm shows the autocompletion box as you type and tries to be smart about what to suggest. Often you can find useful additional information on the right side of the autocompletion, e.g. expanded alias value, command descriptions, value of the previous directory (cd -), etc.
+
+2. Compatibility
+All command-line programs (including emacs, ssh and vim) should work as expected. 
+
+![](https://github.com/railsware/upterm/raw/master/README/npm_autocompletion.png)
